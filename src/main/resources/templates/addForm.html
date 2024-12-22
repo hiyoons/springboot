@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <link th:href="@{/css/bootstrap.min.css}" href="../css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="container">
+    <div class="board_wrap">
+        <form  action="board.html" th:action th:object="${board}"  method="post">
+            <div class="py-5 text-center">
+                <h2>네이버 도서 검색 API 활용</h2>
+            </div>
+            <div class="board_write_wrap">
+
+                <button class="w-100 btn btn-dark btn-lg" onclick="openPopup()" type="button" style="margin-bottom: 15px;">검색</button>
+
+
+
+                <div class="board_write">
+                    <div class="title">
+                        <label for="add_form_title" th:text="title">title</label>
+                        <input id="add_form_title" th:field="*{title}" class="form-control"
+                               placeholder="책의 제목을 입력해주세요." style="margin-bottom: 15px;">
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="add_form_author" th:text="author">author</label>
+                            <input id="add_form_author" th:field="*{author}" class="form-control"
+                                   placeholder="책의 저자를 입력해주세요." style="margin-bottom: 15px;">
+                        </div>
+                        <div class="col">
+                            <label for="add_form_imageURL" th:text="imageURL">imageURL</label>
+                            <input id="add_form_imageURL" th:field="*{imageURL}" class="form-control"
+                                   placeholder="책의 표지 URL을 입력해주세요."/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script th:src="@{/js/popup.js}"></script>
+</body>
+</html>

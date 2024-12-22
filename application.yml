@@ -1,0 +1,9 @@
+spring:
+  devtools:
+    restart:
+      enabled: false # 자동 재시작 비활성화
+      additional-paths: # 재시작 트리거가 되는 폴더 지정
+        - src/main/java
+      exclude: # 재시작 제외 폴더 설정
+        - static/**
+        - public/**

@@ -1,0 +1,46 @@
+<div id="popup">   <!-- 팝업 -->
+
+    <html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <style>
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            th, td {
+                border-bottom: 1px solid #555555;
+                padding: 10px;
+            }
+        </style>
+
+    </head>
+    <body>
+
+    <div class="col-md-12">
+        <h1>도서 검색</h1>
+        <div class="col-md-4">
+            <form th:action="@{/book-search}" method="post">
+                <input type="text" th:value="${keyword}" name="keyword" placeholder="도서명 또는 ISBN을 입력해주세요.">
+                <button th:text="검색" type="submit"/>
+            </form>
+        </div>
+
+        <hr>
+        <div>
+            <table class="table">
+                <tbody>
+                <tr th:each="bookDto : ${bookDtoList}" onclick="selectElement(this)" style="cursor : pointer;" >
+                    <td>
+                        <img th:src="@{${bookDto.imageURL}}" width="100" height="150"/></td>
+                    <td th:text="${bookDto.title}">title</td>
+                    <td th:text="${bookDto.author}">authorA</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script th:src="@{/js/search.js}"></script>
+    </body>
+    </html>
+</div>
